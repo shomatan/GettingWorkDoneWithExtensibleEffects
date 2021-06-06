@@ -24,7 +24,7 @@ val commonSettings = Seq(
   addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.2.0"),
   // to get types like Reader[String, ?] (with more than one type parameter) correctly inferred for scala 2.12.x
   scalacOptions += "-Ypartial-unification",
-  scalacOptions in Test += "-Yrangepos"
+  Test / scalacOptions += "-Yrangepos"
 )
 
 
