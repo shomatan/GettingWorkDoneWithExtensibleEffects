@@ -2,28 +2,26 @@ name := "GettingWorkDoneWithExtensibleEffects"
 
 version := "0.1"
 
-ThisBuild / scalaVersion := "2.12.5"
+ThisBuild / scalaVersion := "2.13.6"
 
 val commonSettings = Seq(
   libraryDependencies ++= Seq(
-    "org.scala-lang.modules" %% "scala-java8-compat" % "0.8.0",
-    "org.typelevel" %% "cats-core" % "1.1.0",
-    "org.typelevel" %% "mouse" % "0.17",
-    "io.monix" %% "monix-eval" % "3.0.0-RC1",
-    "org.atnos" %% "eff" % "5.2.0",
-    "org.atnos" %% "eff-monix" % "5.2.0",
-    "org.atnos" %% "eff-cats-effect" % "5.2.0",
-    "com.github.julien-truffaut"  %%  "monocle-core"    % "1.5.1-cats",
-    "com.github.julien-truffaut"  %%  "monocle-generic" % "1.5.1-cats",
-    "com.github.julien-truffaut"  %%  "monocle-macro"   % "1.5.1-cats",
-    "org.specs2" %% "specs2-core" % "4.0.3" % "test"
+    "org.scala-lang.modules" %% "scala-java8-compat" % "1.0.0",
+    "org.typelevel" %% "cats-core" % "2.6.1",
+    "org.typelevel" %% "mouse" % "1.0.3",
+    "io.monix" %% "monix-eval" % "3.4.0",
+    "org.atnos" %% "eff" % "5.8.1",
+    "org.atnos" %% "eff-monix" % "5.8.1",
+    "org.atnos" %% "eff-cats-effect" % "5.8.1",
+    "com.github.julien-truffaut"  %%  "monocle-core"    % "2.0.4",
+    "com.github.julien-truffaut"  %%  "monocle-generic" % "2.0.4",
+    "com.github.julien-truffaut"  %%  "monocle-macro"   % "2.0.4",
+    "org.specs2" %% "specs2-core" % "4.12.0" % "test"
   ),
   // to write types like Reader[String, ?]
-  addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.6"),
+  addCompilerPlugin("org.typelevel" % "kind-projector_2.13.4" % "0.13.0"),
   //to allow tuple extraction and type ascription in for expressions
-  addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.2.0"),
-  // to get types like Reader[String, ?] (with more than one type parameter) correctly inferred for scala 2.12.x
-  scalacOptions += "-Ypartial-unification",
+  addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1"),
   Test / scalacOptions += "-Yrangepos"
 )
 
